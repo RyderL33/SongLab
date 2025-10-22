@@ -136,38 +136,45 @@ public class ReadData {
         }
         return numSongsDanceable;
     }
+    
 
-
-    public int shakeLowest (Song [] list)
+    public String shakeLowestTitle (Song [] list)
     {
-    String shakeLowest = "";
-    double shakeability1 = 0;
+    Double shakeLowest = 1.0;
+    String shakeLowestTitle = "";
     
         for(int i = 0; i < count; i++)
         {
-            double shakeability2 = (list[i].getShakeability());
-            if(shakeability2 > shakeability1)
+            double shakeability = list[i].getShakeability();
+            String shakeTitle = list[i].getTitle();
+            if(shakeability < shakeLowest)
             {
-                shakeability 
+                shakeLowest = shakeability;
+                shakeLowestTitle = shakeTitle;
             }
         }
-        return numSongsDanceable;
+        return shakeLowestTitle;
     }
 
-
-    public String shakeLowest (Song [] list)
+    
+    public String songLoudest (Song [] list)
     {
-    String shakeLowest = "";
-
+    Double songLoudest = 0.0;
+    String songLoudestTitle = "";
+    
         for(int i = 0; i < count; i++)
         {
-            String newTitle = list[i].getShakeability();
-            if(newTitle.length() > titleLongest.length())
+            double loudness = list[i].getLoudness();
+            String loudnessTitle = list[i].getTitle();
+            if(shakeability < shakeLowest)
             {
-                shakeLowest = 
+                shakeLowest = shakeability;
+                shakeLowestTitle = shakeTitle;
             }
         }
-        return shakeLowest;
+        return shakeLowestTitle;
     }
+
+   
 
 }
