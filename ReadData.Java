@@ -16,7 +16,7 @@ public class ReadData {
         try
         {
 
-            in = new Scanner (new File("songs 2025-2026 ANSI (1)"));
+            in = new Scanner (new File("songs 2025-2026 ANSI ; separated.csv"));
             in.nextLine(); //first row has names for data that column holds, can't parseInt on a set of words, need to skip this line
             while(in.hasNextLine())
             {
@@ -166,15 +166,190 @@ public class ReadData {
         {
             double loudness = list[i].getLoudness();
             String loudnessTitle = list[i].getTitle();
-            if(shakeability < shakeLowest)
+            if(loudness > songLoudest)
             {
-                shakeLowest = shakeability;
-                shakeLowestTitle = shakeTitle;
+                songLoudest = loudness;
+                songLoudestTitle = loudnessTitle;
             }
         }
-        return shakeLowestTitle;
+        return songLoudestTitle;
+    }
+
+
+    public double averageObscenity50s (Song [] list)
+    {
+    Double averageObscenity = 0.0;
+    Double obscenityTotal = 0.0;
+    int songsTotal = 0;
+
+        for (int i = 0; i < count; i++)
+        {
+            double obscenity = list[i].getObscenity();
+            int year = list[i].getYear();
+            if (year > 1949 && year < 1960)
+            {
+                obscenityTotal += obscenity;
+                songsTotal++;
+            }
+        }
+    averageObscenity = obscenityTotal / songsTotal;
+    return averageObscenity;
+    }
+
+
+    public double averageObscenity60s (Song [] list)
+    {
+    Double averageObscenity = 0.0;
+    Double obscenityTotal = 0.0;
+    int songsTotal = 0;
+
+        for (int i = 0; i < count; i++)
+        {
+            double obscenity = list[i].getObscenity();
+            int year = list[i].getYear();
+            if (year > 1959 && year < 1970)
+            {
+                obscenityTotal += obscenity;
+                songsTotal++;
+            }
+        }
+    averageObscenity = obscenityTotal / songsTotal;
+    return averageObscenity;
+    }
+
+
+    public double averageObscenity70s (Song [] list)
+    {
+    Double averageObscenity = 0.0;
+    Double obscenityTotal = 0.0;
+    int songsTotal = 0;
+
+        for (int i = 0; i < count; i++)
+        {
+            double obscenity = list[i].getObscenity();
+            int year = list[i].getYear();
+            if (year > 1969 && year < 1980)
+            {
+                obscenityTotal += obscenity;
+                songsTotal++;
+            }
+        }
+    averageObscenity = obscenityTotal / songsTotal;
+    return averageObscenity;
     }
 
    
+    public double averageObscenity80s (Song [] list)
+    {
+    Double averageObscenity = 0.0;
+    Double obscenityTotal = 0.0;
+    int songsTotal = 0;
 
+        for (int i = 0; i < count; i++)
+        {
+            double obscenity = list[i].getObscenity();
+            int year = list[i].getYear();
+            if (year > 1979 && year < 1990)
+            {
+                obscenityTotal += obscenity;
+                songsTotal++;
+            }
+        }
+    averageObscenity = obscenityTotal / songsTotal;
+    return averageObscenity;
+    }
+
+
+    public double averageObscenity90s (Song [] list)
+    {
+    Double averageObscenity = 0.0;
+    Double obscenityTotal = 0.0;
+    int songsTotal = 0;
+
+        for (int i = 0; i < count; i++)
+        {
+            double obscenity = list[i].getObscenity();
+            int year = list[i].getYear();
+            if (year > 1989 && year < 2000)
+            {
+                obscenityTotal += obscenity;
+                songsTotal++;
+            }
+        }
+    averageObscenity = obscenityTotal / songsTotal;
+    return averageObscenity;
+    }
+
+    public double averageObscenity00s (Song [] list)
+    {
+    Double averageObscenity = 0.0;
+    Double obscenityTotal = 0.0;
+    int songsTotal = 0;
+
+        for (int i = 0; i < count; i++)
+        {
+            double obscenity = list[i].getObscenity();
+            int year = list[i].getYear();
+            if (year > 1999 && year < 2010)
+            {
+                obscenityTotal += obscenity;
+                songsTotal++;
+            }
+        }
+    averageObscenity = obscenityTotal / songsTotal;
+    return averageObscenity;
+    }
+
+
+    public double averageObscenity10s (Song [] list)
+    {
+    Double averageObscenity = 0.0;
+    Double obscenityTotal = 0.0;
+    int songsTotal = 0;
+
+        for (int i = 0; i < count; i++)
+        {
+            double obscenity = list[i].getObscenity();
+            int year = list[i].getYear();
+            if (year > 2010)
+            {
+                obscenityTotal += obscenity;
+                songsTotal++;
+            }
+        }
+    averageObscenity = obscenityTotal / songsTotal;
+    return averageObscenity;
+    }
+
+
+    public int numSongsJackson (Song [] list)
+    {
+    int numSongsJackson = 0;
+
+        for (int i = 0; i < count; i++)
+        {
+            String artist = list[i].getArtist();
+            if (artist == "Michael Jackson")
+            {
+                numSongsJackson++;
+            }
+        }
+    return numSongsJackson;
+    }
+
+
+    public int numSongsHouston (Song [] list)
+    {
+    int numSongsHouston = 0;
+
+        for (int i = 0; i < count; i++)
+        {
+            String artist = list[i].getArtist();
+            if (artist == "Whitney Houston")
+            {
+                numSongsHouston++;
+            }
+        }
+    return numSongsHouston;
+    }
 }
